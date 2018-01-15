@@ -5,5 +5,5 @@ Programmers*. Various lessons and homework assignments will be structured around
 features, allowing a guided experience through developing your first game.
 
 The game is programmed in [Haxe](www.haxe.org) and uses the framework/game engine [HaxeFlixel](www.haxeflixel.com). 
-For more information about the class as a whole, please visit (the course's github repository)
-[https://github.com/SamBumgardner/Intro-To-Video-Game-Development].
+For more information about the class as a whole, please visit 
+[the course's github repository](https://github.com/SamBumgardner/Intro-To-Video-Game-Development).
