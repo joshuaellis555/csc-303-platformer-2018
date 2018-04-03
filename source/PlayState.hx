@@ -1,10 +1,15 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSprite.IFlxSprite;
 import flixel.FlxState;
+import flixel.math.FlxPoint;
 import flixel.math.FlxRandom;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
+
+
 
 class PlayState extends FlxState
 {
@@ -12,24 +17,13 @@ class PlayState extends FlxState
 	{
 		super.create();
 		
-		var rng:FlxRandom = new FlxRandom();
+		var txt:FlxText = new FlxText(300, 200, 100, "Hello World", 20);
+		txt.font = "Arial";
+		txt.velocity.x = 1; 
+		txt.velocity.y = 1;
+		txt.moves = true;
 		
-		var thing1:FlxSprite =  new FlxSprite(rng.int(0, 100), rng.int(0, 300));
-		thing1.makeGraphic(400, 100, FlxColor.CYAN);
-		for (x in 0...400){
-			for (y in 0...100){
-				thing1.pixels.setPixel(x, y, rng.color());
-				//thing1.pixels.setPixel(x, y, rng.color());
-			}
-		}
-		
-		add(thing1);
-		var thing2:FlxSprite =  new FlxSprite(30, 300);
-		add(thing2);
-		var thing3:FlxSprite =  new FlxSprite(300, 30);
-		add(thing3);
-		var thing4:FlxSprite =  new FlxSprite(350, 390);
-		add(thing4);
+		add(txt);
 	}
 
 	override public function update(elapsed:Float):Void
