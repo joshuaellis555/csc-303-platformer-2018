@@ -2,7 +2,6 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.input.FlxKeyManager;
 
 class PlayState extends FlxState
 {
@@ -11,8 +10,11 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-		player = new Player(32, 32);
+		
+		player = new Player(FlxG.random.float(100, 500), 32);
 		add(player);
+		
+		add(new Fireball(600, 48));
 	}
 
 	override public function update(elapsed:Float):Void
