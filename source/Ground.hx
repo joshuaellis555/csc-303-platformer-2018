@@ -13,7 +13,7 @@ class Ground extends FlxSprite
 	{
 		super(X, Y);
 		makeGraphic(32, 32, FlxColor.GRAY);
-		set_immovable = true;
+		set_immovable(true);
 	}
 	
 }
