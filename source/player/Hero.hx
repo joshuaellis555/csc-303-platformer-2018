@@ -9,8 +9,8 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
  */
 class Hero extends FlxSprite
 {
-	public static var LENGTH(default, never) = 32;
-	public static var HEIGHT(default, never) = 32;
+	public static var LENGTH(default, never):Int = 32;
+	public static var HEIGHT(default, never):Int = 32;
 
 	public function new(?X:Float=0, ?Y:Float=0) 
 	{
