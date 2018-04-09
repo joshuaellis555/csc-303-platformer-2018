@@ -1,5 +1,6 @@
 package;
 
+import environment.Ground;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
