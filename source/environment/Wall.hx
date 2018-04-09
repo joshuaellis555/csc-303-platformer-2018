@@ -11,7 +11,7 @@ import flixel.util.FlxColor;
 class Wall extends Ground
 {
 	public function new(?X:Float = 0, ?Y:Float = 0, c = FlxColor.RED){
-		super(X, Y);
+		super(X, Y,FlxColor.WHITE);
 		this.color = c;
 	}
 }
