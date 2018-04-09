@@ -2,10 +2,12 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.util.FlxColor;
 
 class PlayState extends FlxState
 {
 	private var player:Player;
+	private var fireball:Fireball;
 	
 	override public function create():Void
 	{
@@ -14,7 +16,9 @@ class PlayState extends FlxState
 		player = new Player(FlxG.random.float(100, 500), 32);
 		add(player);
 		
-		add(new Fireball(600, 48));
+		
+		fireball = new Fireball(600, 48);
+		add(fireball);
 	}
 
 	override public function update(elapsed:Float):Void
@@ -23,6 +27,13 @@ class PlayState extends FlxState
 			player.x += 5; // we want to update player x and / or y postion
 		}
 		
+		FlxG.overlap(player, fireball,collidePlayerAndFireball);
+		
 		super.update(elapsed);
 	}
+	
+	private function collidePlayerAndFireball(player:Player, fireball:Fireball):Void{
+		player.destroy();
+	}
+	
 }
