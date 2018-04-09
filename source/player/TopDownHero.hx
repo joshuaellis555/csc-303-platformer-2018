@@ -1,4 +1,5 @@
 package player;
+import environment.Ground;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 
@@ -8,13 +9,14 @@ import flixel.util.FlxColor;
  */
 class TopDownHero extends Hero
 {
-	var colors:Array<FlxColor>;
+	var colors:Array<FlxColor> = [0xffff00, 0xff0000, 0x00ff00, 0x0000ff, 0x00ffff, 0xff00ff];
 	var colorIndex = 0;
 	public function new(?X:Float=0, ?Y:Float=0) 
 	{
 		super(X, Y);
 		
 		colors = [0xffff00, 0xff0000, 0x00ff00, 0x0000ff, 0x00ffff, 0xff00ff];
+		this.color = colors[0];
 	}
 	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
@@ -36,6 +38,11 @@ class TopDownHero extends Hero
 		if (FlxG.keys.justPressed.SPACE){
 			colorIndex += 1;
 			this.color = colors[colorIndex % 6];
+		}
+	}
+	public function HitWall(me:TopDownHero, ground:Ground){
+		if (me.color != ground.color){
+			FlxG.collide(me, ground);
 		}
 	}
 }
