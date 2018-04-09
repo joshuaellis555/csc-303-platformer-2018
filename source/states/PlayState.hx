@@ -1,6 +1,7 @@
 package states;
 
 import environment.Ground;
+import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import player.PlatformerHero;
@@ -53,5 +54,6 @@ class PlayState extends FlxState
 
 	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
+		FlxG.collide(platformerHero, groundGroup, platformerHero.HitGround);
 	}
 }
