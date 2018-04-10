@@ -4,7 +4,7 @@ import environment.Ground;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import player.Hero;
+import player.Player;
 
 class PlayState extends FlxState
 {
@@ -16,10 +16,10 @@ class PlayState extends FlxState
 	private static var WALL_START_X(default, never):Float = 240;
 	private static var WALL_START_Y(default, never):Float = 192;
 	
-	private static var HERO_START_X(default, never):Float = 300;
-	private static var HERO_START_Y(default, never):Float = 200;
+	private static var HERO_START_X(default, never):Float = 320;
+	private static var HERO_START_Y(default, never):Float = 256;
 	
-	private var hero:Hero;
+	private var player:Player;
 	private var groundGroup:FlxTypedGroup<Ground>;
 	
 	override public function create():Void {
@@ -32,7 +32,7 @@ class PlayState extends FlxState
 	 * Helper function that generates all starting objects.
 	 */
 	private function instantiateEntities():Void {
-		hero = new Hero(HERO_START_X, HERO_START_Y);
+		player = new Player(HERO_START_X, HERO_START_Y);
 		
 		groundGroup = new FlxTypedGroup<Ground>();
 		for (i in 0...GROUND_TILE_COUNT) {
@@ -47,12 +47,12 @@ class PlayState extends FlxState
 	 * Helper function that adds all starting objects to the Scene.
 	 */
 	private function addEntities():Void {
-		add(hero);
+		add(player);
 		add(groundGroup);
 	}
 
 	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
-		FlxG.collide(hero, groundGroup);
+		FlxG.collide(player, groundGroup);
 	}
 }

@@ -11,7 +11,7 @@ import player.fsm.PlayerState;
 class JumpState extends PlayerState
 {
 
-	public function new(hero:Hero) 
+	public function new(hero:Player) 
 	{
 		super(hero);
 	}
@@ -33,7 +33,7 @@ class JumpState extends PlayerState
 	override public function transitionIn():Void 
 	{
 		this.managedHero.color = FlxColor.PURPLE;
-		this.managedHero.velocity.y = Hero.JUMP_VELOCITY;
+		this.managedHero.velocity.y = Player.JUMP_VELOCITY;
 	}
 	
 	override public function transitionOut():Void 

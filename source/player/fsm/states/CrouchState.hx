@@ -12,7 +12,7 @@ class CrouchState extends PlayerState
 {
 	private static var topHalfOfGraphicRect(default, never) = new FlxRect(0, 0, 32, 32);
 	
-	public function new(hero:Hero) 
+	public function new(hero:Player) 
 	{
 		super(hero);
 	}
@@ -36,20 +36,20 @@ class CrouchState extends PlayerState
 	{
 		this.managedHero.color = FlxColor.RED;
 		
-		this.managedHero.height = Hero.CROUCH_HEIGHT;
+		this.managedHero.height = Player.CROUCH_HEIGHT;
 		this.managedHero.clipRect = topHalfOfGraphicRect;
-		this.managedHero.y += Hero.HEIGHT - Hero.CROUCH_HEIGHT;
+		this.managedHero.y += Player.HEIGHT - Player.CROUCH_HEIGHT;
 		
-		this.managedHero.drag.x = Hero.CROUCHING_DECELERATION;
+		this.managedHero.drag.x = Player.CROUCHING_DECELERATION;
 	}
 	
 	override public function transitionOut():Void 
 	{
 		this.managedHero.color = FlxColor.WHITE;
 		
-		this.managedHero.height = Hero.HEIGHT;
+		this.managedHero.height = Player.HEIGHT;
 		this.managedHero.clipRect = null;
-		this.managedHero.y -= Hero.HEIGHT - Hero.CROUCH_HEIGHT;
+		this.managedHero.y -= Player.HEIGHT - Player.CROUCH_HEIGHT;
 		
 		this.managedHero.drag.x = 0;
 	}

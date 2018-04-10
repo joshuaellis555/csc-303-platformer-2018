@@ -15,7 +15,7 @@ import player.fsm.states.StandState;
  * Base hero class that player-controlled objects should descend from.
  * @author Samuel Bumgardner
  */
-class Hero extends FlxSprite
+class Player extends FlxSprite
 {
 	public static var LENGTH(default, never):Int = 32;
 	public static var HEIGHT(default, never):Int = 64;
@@ -45,6 +45,7 @@ class Hero extends FlxSprite
 		states[PlayerStates.CROUCH] = new CrouchState(this);		
 		
 		state = states[PlayerStates.STAND];
+		state.transitionIn();
 	}
 	
 	/**
