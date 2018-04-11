@@ -10,7 +10,7 @@ import player.fsm.PlayerState;
 class StandState extends PlayerState
 {
 
-	public function new(hero:Hero) 
+	public function new(hero:Player) 
 	{
 		super(hero);
 	}
@@ -48,7 +48,7 @@ class StandState extends PlayerState
 	override public function transitionIn():Void 
 	{
 		this.managedHero.color = FlxColor.ORANGE;
-		this.managedHero.drag.x = Hero.STANDING_DECELERATION;
+		this.managedHero.drag.x = Player.STANDING_DECELERATION;
 	}
 	
 	override public function transitionOut():Void 

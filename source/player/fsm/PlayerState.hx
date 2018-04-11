@@ -1,6 +1,6 @@
 package player.fsm;
 
-import player.Hero;
+import player.Player;
 import player.fsm.State;
 
 /**
@@ -10,10 +10,10 @@ import player.fsm.State;
 class PlayerState implements State
 {
 	private var managedHero:Hero;
-	
 	private var facing:Int;
+	private var managedHero:Player;
 
-	public function new(hero:Hero) 
+	public function new(hero:Player) 
 	{
 		this.managedHero = hero;
 	}

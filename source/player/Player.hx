@@ -11,12 +11,13 @@ import player.fsm.states.JumpState;
 import player.fsm.states.RunState;
 import player.fsm.states.StandState;
 import player.fsm.states.SlideDashState;
+import player.fsm.states.DoubleJumpState;
 
 /**
  * Base hero class that player-controlled objects should descend from.
  * @author Samuel Bumgardner
  */
-class Hero extends FlxSprite
+class Player extends FlxSprite
 {
 	public static var LENGTH(default, never):Int = 32;
 	public static var HEIGHT(default, never):Int = 64;
@@ -45,8 +46,10 @@ class Hero extends FlxSprite
 		states[PlayerStates.JUMP] = new JumpState(this);
 		states[PlayerStates.CROUCH] = new CrouchState(this);
 		states[PlayerStates.SLIDEDASH] = new SlideDashState(this);
+		states[PlayerStates.DOUBLE] = new DoubleJumpState(this);
 		
 		state = states[PlayerStates.STAND];
+		state.transitionIn();
 	}
 	
 	/**

@@ -13,7 +13,7 @@ class RunState extends PlayerState
 
 	private var direction:Int = 0;
 	
-	public function new(hero:Hero) 
+	public function new(hero:Player) 
 	{
 		super(hero);
 	}
@@ -49,7 +49,7 @@ class RunState extends PlayerState
 	
 	override public function update():Void 
 	{
-		this.managedHero.velocity.x = Hero.MAX_RUN_SPEED * direction;
+		this.managedHero.velocity.x = Player.MAX_RUN_SPEED * direction;
 	}
 	
 	override public function transitionIn():Void 
