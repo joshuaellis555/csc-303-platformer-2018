@@ -41,6 +41,7 @@ class RunState extends PlayerState
 		} 
 		else {
 			direction = horizontalInput;
+			this.managedHero.facing = direction;
 		}
 		
 		if (this.managedHero.isTouching(FlxObject.LEFT) || this.managedHero.isTouching(FlxObject.RIGHT)){
