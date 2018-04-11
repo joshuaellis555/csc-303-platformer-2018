@@ -12,4 +12,5 @@ class PlayerStates
 	public static var JUMP(default, never):Int = 2;
 	public static var CROUCH(default, never):Int = 3;
 	public static var CLIMB(default, never):Int = 4;
+	public static var DOUBLE(default, never):Int = 5;
 }

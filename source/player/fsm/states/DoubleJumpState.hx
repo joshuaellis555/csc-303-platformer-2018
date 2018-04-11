@@ -1,17 +1,17 @@
 package player.fsm.states;
 
 import flixel.FlxObject;
-import flixel.FlxG;
 import flixel.util.FlxColor;
 import player.fsm.PlayerState;
 
 /**
- * State for when the player initates a jump.
- * @author Samuel Bumgardner
+ * ...
+ * @author Ted Green
  */
-class JumpState extends PlayerState
+class DoubleJumpState extends PlayerState 
 {
 
+	
 	public function new(hero:Player) 
 	{
 		super(hero);
@@ -21,12 +21,6 @@ class JumpState extends PlayerState
 	{
 		if (this.managedHero.isTouching(FlxObject.DOWN) && managedHero.velocity.y >= 0) {
 			return PlayerStates.STAND;
-		}
-		
-		if (this.managedHero.isTouching(FlxObject.LEFT) || this.managedHero.isTouching(FlxObject.RIGHT)){
-			return PlayerStates.CLIMB;
-		if (FlxG.keys.justPressed.SPACE && !this.managedHero.isTouching(FlxObject.DOWN)){
-			return PlayerStates.DOUBLE;
 		}
 		
 		return PlayerStates.NO_CHANGE;
@@ -39,8 +33,8 @@ class JumpState extends PlayerState
 	
 	override public function transitionIn():Void 
 	{
-		this.managedHero.color = FlxColor.PURPLE;
-		this.managedHero.velocity.y = Player.JUMP_VELOCITY;
+		this.managedHero.color = FlxColor.GREEN;
+		this.managedHero.velocity.y = Player.JUMP_VELOCITY + 100;
 	}
 	
 	override public function transitionOut():Void 

@@ -11,6 +11,7 @@ import player.fsm.states.JumpState;
 import player.fsm.states.RunState;
 import player.fsm.states.StandState;
 import player.fsm.states.ClimbState;
+import player.fsm.states.DoubleJumpState;
 
 /**
  * Base hero class that player-controlled objects should descend from.
@@ -30,7 +31,7 @@ class Player extends FlxSprite
 	public static var CROUCHING_DECELERATION(default, never):Float = 200;
 	
 	private var states:Vector<State> = new Vector<State>(8);
-	
+	private var states:Vector<State> = new Vector<State>(6);
 	private var state:State;
 	
 	public function new(?X:Float=0, ?Y:Float=0) 
@@ -44,7 +45,9 @@ class Player extends FlxSprite
 		states[PlayerStates.RUN] = new RunState(this);
 		states[PlayerStates.JUMP] = new JumpState(this);
 		states[PlayerStates.CROUCH] = new CrouchState(this);		
-		states[PlayerStates.CLIMB] = new ClimbState(this);		
+		states[PlayerStates.CLIMB] = new ClimbState(this);
+		states[PlayerStates.CROUCH] = new CrouchState(this);	
+		states[PlayerStates.DOUBLE] = new DoubleJumpState(this);
 		
 		state = states[PlayerStates.STAND];
 		state.transitionIn();
