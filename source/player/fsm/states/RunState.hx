@@ -44,6 +44,10 @@ class RunState extends PlayerState
 			this.managedHero.facing = direction;
 		}
 		
+		if (this.managedHero.isTouching(FlxObject.LEFT) || this.managedHero.isTouching(FlxObject.RIGHT)){
+			return PlayerStates.CLIMB;
+		}
+		
 		return PlayerStates.NO_CHANGE;
 	}
 	
