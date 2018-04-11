@@ -10,6 +10,8 @@ import player.fsm.State;
 class PlayerState implements State
 {
 	private var managedHero:Hero;
+	
+	private var facing:Int;
 
 	public function new(hero:Hero) 
 	{

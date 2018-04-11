@@ -41,6 +41,7 @@ class RunState extends PlayerState
 		} 
 		else {
 			direction = horizontalInput;
+			this.managedHero.facing = direction;
 		}
 		
 		return PlayerStates.NO_CHANGE;
