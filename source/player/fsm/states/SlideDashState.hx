@@ -17,7 +17,7 @@ class SlideDashState extends PlayerState
 	
 	private static var topHalfOfGraphicRect(default, never) = new FlxRect(0, 0, 32, 32);
 	
-	public function new(hero:Hero) 
+	public function new(hero:Player) 
 	{
 		super(hero);
 	}
@@ -45,13 +45,13 @@ class SlideDashState extends PlayerState
 	{
 		this.managedHero.color = FlxColor.YELLOW;
 		
-		this.managedHero.height = Hero.CROUCH_HEIGHT;
+		this.managedHero.height = Player.CROUCH_HEIGHT;
 		this.managedHero.clipRect = topHalfOfGraphicRect;
-		this.managedHero.y += Hero.HEIGHT - Hero.CROUCH_HEIGHT;
+		this.managedHero.y += Player.HEIGHT - Player.CROUCH_HEIGHT;
 		
-		this.managedHero.drag.x = Hero.CROUCHING_DECELERATION;
+		this.managedHero.drag.x = Player.CROUCHING_DECELERATION;
 		
-		this.managedHero.velocity.x = Hero.MAX_RUN_SPEED * this.managedHero.facing;
+		this.managedHero.velocity.x = Player.MAX_RUN_SPEED * this.managedHero.facing;
 		
 		slideTime = Sys.time() + .5;
 		
@@ -62,9 +62,9 @@ class SlideDashState extends PlayerState
 	{
 		this.managedHero.color = FlxColor.WHITE;
 		
-		this.managedHero.height = Hero.HEIGHT;
+		this.managedHero.height = Player.HEIGHT;
 		this.managedHero.clipRect = null;
-		this.managedHero.y -= Hero.HEIGHT - Hero.CROUCH_HEIGHT;
+		this.managedHero.y -= Player.HEIGHT - Player.CROUCH_HEIGHT;
 		
 		this.managedHero.drag.x = 0;
 	}

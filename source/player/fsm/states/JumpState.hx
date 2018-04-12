@@ -25,6 +25,7 @@ class JumpState extends PlayerState
 		
 		if (this.managedHero.isTouching(FlxObject.LEFT) || this.managedHero.isTouching(FlxObject.RIGHT)){
 			return PlayerStates.CLIMB;
+		}
 		if (FlxG.keys.justPressed.SPACE && !this.managedHero.isTouching(FlxObject.DOWN)){
 			return PlayerStates.DOUBLE;
 		}
