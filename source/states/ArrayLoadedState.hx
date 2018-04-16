@@ -67,6 +67,10 @@ class ArrayLoadedState extends FlxState
 	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 		FlxG.collide(player, map);
+		
+		if (FlxG.keys.justPressed.N) {
+			FlxG.switchState(new OgmoLoadedState());
+		}
 	}
 	
 }
